@@ -5,6 +5,7 @@ import { Recommendation } from './interfaces/recommendation.interface';
 export class RecommendationsService {
   private readonly recommendations: Recommendation[] = [
     {
+      id: '0',
       name: 'hi i bims 1 recommendation',
     } as Recommendation,
   ];
@@ -15,5 +16,9 @@ export class RecommendationsService {
 
   findAll(): Recommendation[] {
     return this.recommendations;
+  }
+
+  findOne(id: string): Recommendation {
+    return this.recommendations.filter((r) => r.id === id).shift();
   }
 }
